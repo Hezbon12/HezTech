@@ -1,0 +1,542 @@
+/*
+HezTech E-commerce - Checkout Page Styles
+Version: 1.0
+*/
+
+/*------------------------------------
+01 -> GENERAL CHECKOUT LAYOUT & STEPS
+------------------------------------*/
+.checkout-steps {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.checkout-steps::before {
+    content: '';
+    position: absolute;
+    top: 14px; /* Vertically center with the icon */
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #E4E7ED; /* Light grey line from style.css */
+    z-index: 0;
+}
+
+.step {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    width: 33.333%;
+}
+
+.step-icon {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 50%;
+    background: #E4E7ED; /* Light grey */
+    color: #8D99AE; /* Grey text from style.css */
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 10px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.step.active .step-icon {
+    background: #D10024; /* Primary Red */
+    color: #FFF;
+}
+
+.step.completed .step-icon {
+    background: #28a745; /* Success Green */
+    color: #FFF;
+}
+
+.step-title {
+    font-size: 12px;
+    color: #8D99AE; /* Grey text */
+    font-weight: 500;
+}
+
+.step.active .step-title {
+    color: #D10024; /* Primary Red */
+    font-weight: 700;
+}
+
+.step.completed .step-title {
+    color: #28a745; /* Success Green */
+    font-weight: 700;
+}
+
+.checkout-section {
+    display: none;
+    padding-bottom: 20px; /* Space for navigation buttons */
+}
+
+.checkout-section.active {
+    display: block;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/*------------------------------------
+02 -> FORM STYLING
+------------------------------------*/
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: #2B2D42; /* Dark header color */
+}
+
+.input { /* Reusing .input from style.css, ensuring it's modern */
+    height: 44px; /* Slightly taller for modern feel */
+    padding: 0px 18px;
+    border: 1px solid #E4E7ED;
+    background-color: #FFF;
+    width: 100%;
+    border-radius: 4px; /* Rounded corners */
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.input:focus {
+    border-color: #D10024; /* Primary Red */
+    box-shadow: 0 0 0 0.2rem rgba(209, 0, 36, 0.25); /* Focus ring like Bootstrap */
+    outline: none;
+}
+
+.input.error {
+    border-color: #D10024; /* Primary Red for error */
+}
+
+textarea.input {
+    min-height: 100px;
+    padding: 15px 18px;
+}
+
+.input-select { /* Reusing .input-select from style.css */
+    padding: 0px 15px;
+    background: #FFF;
+    border: 1px solid #E4E7ED;
+    height: 44px;
+    border-radius: 4px;
+    width: 100%; /* Ensure it takes full width if needed */
+}
+
+.error-message {
+    color: #D10024; /* Primary Red */
+    font-size: 12px;
+    margin-top: 5px;
+    display: none; /* Shown by JS */
+}
+
+/* Checkbox and Radio custom styling from style.css is generally good,
+   ensure it's consistent or override if needed for checkout specifically */
+.input-checkbox label, .input-radio label {
+    font-weight: 500;
+    cursor: pointer;
+}
+.input-checkbox .caption, .input-radio .caption {
+    padding-left: 25px; /* Align with checkbox */
+    margin-top: 10px;
+}
+
+/*------------------------------------
+03 -> SHIPPING & PAYMENT OPTIONS
+------------------------------------*/
+.shipping-options, .payment-methods-container { /* A generic container if needed */
+    margin-bottom: 30px;
+}
+
+.shipping-option, .payment-method-card {
+    border: 1px solid #E4E7ED;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: #FFF;
+}
+
+.shipping-option:hover, .payment-method-card:hover {
+    border-color: #D10024; /* Primary Red */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.shipping-option.selected, .payment-method-card.selected {
+    border-color: #D10024; /* Primary Red */
+    background-color: rgba(209, 0, 36, 0.05); /* Light red tint */
+    box-shadow: 0 2px 6px rgba(209, 0, 36, 0.15);
+}
+
+.shipping-option-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.shipping-option-header label {
+    margin-bottom: 0; /* Remove default margin for label inside flex */
+}
+
+.shipping-price {
+    font-weight: 700;
+    color: #D10024; /* Primary Red */
+}
+
+.payment-methods { /* Wrapper for payment cards */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.payment-method-card {
+    flex: 1; /* Allow cards to grow */
+    min-width: 200px; /* Minimum width before wrapping */
+}
+
+.payment-method-card .payment-logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    font-weight: 700;
+    color: #2B2D42;
+}
+.payment-method-card .payment-logo i {
+    margin-right: 10px;
+    font-size: 24px; /* Larger icons */
+    color: #D10024; /* Primary Red for icons */
+}
+.payment-method-card .payment-logo img {
+    max-height: 30px; /* For image logos like M-Pesa */
+    margin-right: 10px;
+}
+.payment-method-card p {
+    font-size: 13px;
+    color: #555;
+    margin-bottom: 0;
+}
+
+.payment-details {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #f0f0f0;
+    border-radius: 5px;
+    background-color: #fbfbfc; /* Very light grey background */
+    display: none; /* Shown by JS */
+}
+.payment-details.active {
+    display: block;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+#card-element { /* Stripe's card element container */
+    padding: 12px;
+    border: 1px solid #E4E7ED;
+    border-radius: 4px;
+    background-color: #FFF;
+}
+
+.mpesa-status-message {
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 13px;
+}
+.mpesa-status-message.processing {
+    background-color: #e6f7ff; /* Light blue for processing */
+    border: 1px solid #91d5ff;
+    color: #0050b3;
+}
+.mpesa-status-message.success {
+    background-color: #f6ffed; /* Light green for success */
+    border: 1px solid #b7eb8f;
+    color: #237804;
+}
+.mpesa-status-message.error {
+    background-color: #fff1f0; /* Light red for error */
+    border: 1px solid #ffa39e;
+    color: #cf1322;
+}
+
+
+/*------------------------------------
+04 -> ORDER SUMMARY (RIGHT SIDEBAR)
+------------------------------------*/
+.order-details { /* The main container for the right sidebar */
+    position: sticky;
+    top: 20px; /* Sticky position for modern feel */
+    background-color: #fbfbfc; /* Light background for contrast */
+    padding: 25px;
+    border-radius: 5px;
+    border: 1px solid #E4E7ED;
+}
+
+.order-details .section-title h3.title {
+    font-size: 20px; /* Slightly larger title for summary */
+    margin-bottom: 20px;
+}
+
+.order-summary {
+    margin: 0; /* Remove default margins if any */
+    border-radius: 0; /* Remove radius if inside .order-details already rounded */
+    border: none; /* Remove border if inside .order-details already bordered */
+}
+
+.order-summary .order-col {
+    display: flex; /* Use flex for better alignment */
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid #E4E7ED;
+}
+.order-summary .order-col:last-child {
+    border-bottom: none;
+}
+
+.order-summary .order-col > div:first-child { /* Product name/label */
+    color: #555;
+    flex-grow: 1;
+}
+.order-summary .order-col > div:last-child { /* Price/value */
+    font-weight: 500;
+    color: #2B2D42;
+    text-align: right;
+    min-width: 100px; /* Ensure prices align well */
+}
+
+.order-summary .order-products .order-col div:first-child {
+    font-size: 14px;
+}
+
+.order-summary .order-col strong.order-total {
+    font-size: 22px;
+    color: #D10024; /* Primary Red */
+}
+
+.order-details .payment-method,
+.order-details .shipping-method,
+.order-details .order-summary-footer {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px dashed #E4E7ED; /* Dashed separator */
+}
+.order-details .section-title h4.title {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+.order-details p#selected-payment-method,
+.order-details p#selected-shipping-method {
+    font-size: 14px;
+    color: #333;
+}
+
+.order-summary-footer .progress {
+    height: 10px; /* Slimmer progress bar */
+    margin-bottom: 8px;
+    border-radius: 5px;
+}
+.order-summary-footer .progress-bar {
+    background-color: #D10024; /* Primary Red for progress */
+}
+.order-summary-footer p#checkout-progress-text {
+    font-size: 12px;
+    color: #8D99AE;
+}
+
+/*------------------------------------
+05 -> BUTTONS & NAVIGATION
+------------------------------------*/
+.btn-navigation {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.btn-navigation .btn-default { /* For "Back" buttons */
+    background-color: #f0f0f0;
+    color: #555;
+    border-color: #ddd;
+    padding: 10px 25px;
+    border-radius: 40px; /* Consistent with primary-btn */
+    font-weight: 500;
+}
+.btn-navigation .btn-default:hover {
+    background-color: #e0e0e0;
+    border-color: #ccc;
+}
+.btn-navigation .primary-btn { /* Ensure it's styled if not already global */
+    padding: 10px 25px; /* Adjust padding if needed */
+}
+.btn-navigation .primary-btn i {
+    margin-left: 8px;
+}
+.btn-navigation .btn-default i {
+    margin-right: 8px;
+}
+
+
+/*------------------------------------
+06 -> ORDER REVIEW & CONFIRMATION
+------------------------------------*/
+.order-review .section-title h4.title {
+    font-size: 16px;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #f0f0f0;
+}
+.order-review p {
+    font-size: 14px;
+    margin-bottom: 8px;
+    color: #333;
+}
+.order-review p strong {
+    color: #2B2D42;
+}
+.order-review .order-summary { /* Reuse summary styles */
+    margin-top: 15px;
+    border: 1px solid #E4E7ED;
+    border-radius: 5px;
+    padding: 15px;
+}
+
+.order-confirmation {
+    text-align: center;
+    padding: 40px 0;
+}
+
+.confirmation-icon {
+    font-size: 70px; /* Large check icon */
+    color: #28a745; /* Success Green */
+    margin-bottom: 20px;
+}
+.order-confirmation h2 {
+    font-size: 28px;
+    color: #2B2D42;
+    margin-bottom: 10px;
+}
+.order-id {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #555;
+}
+.order-id span {
+    color: #D10024; /* Primary Red */
+}
+.order-confirmation p {
+    font-size: 15px;
+    color: #555;
+    margin-bottom: 25px;
+}
+.order-confirmation .btn-default, .order-confirmation .primary-btn {
+    margin: 0 10px;
+}
+
+/*------------------------------------
+07 -> LOCATION SEARCH DROPDOWN
+------------------------------------*/
+.location-search { /* Parent of the input that needs a dropdown */
+    position: relative;
+}
+
+.location-results {
+    position: absolute;
+    top: 100%; /* Position below the input */
+    left: 0;
+    right: 0;
+    background: #fff;
+    border: 1px solid #E4E7ED;
+    border-top: none;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 1000; /* Ensure it's above other elements */
+    border-radius: 0 0 4px 4px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    display: none; /* Shown by JS */
+}
+
+.location-result-item {
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.location-result-item:hover {
+    background: #f5f5f5; /* Light hover effect */
+    color: #D10024; /* Primary Red */
+}
+
+
+/*------------------------------------
+08 -> RESPONSIVE ADJUSTMENTS
+------------------------------------*/
+@media only screen and (max-width: 991px) { /* Medium devices (tablets, less than 992px) */
+    .order-details {
+        position: static; /* Remove sticky for stacked layout */
+        margin-top: 30px;
+    }
+}
+
+@media only screen and (max-width: 767px) { /* Small devices (landscape phones, less than 768px) */
+    .checkout-steps {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .checkout-steps::before { /* Hide horizontal line on mobile */
+        display: none;
+    }
+
+    .step {
+        width: 100%;
+        margin-bottom: 15px; /* Space between steps */
+        display: flex; /* Align icon and title horizontally */
+        align-items: center;
+        text-align: left;
+    }
+    .step:last-child {
+        margin-bottom: 0;
+    }
+
+    .step-icon {
+        margin-bottom: 0;
+        margin-right: 10px;
+    }
+
+    .payment-methods {
+        flex-direction: column; /* Stack payment cards */
+    }
+    .payment-method-card {
+        min-width: 100%; /* Full width */
+    }
+
+    .btn-navigation {
+        flex-direction: column-reverse; /* Stack buttons, primary on bottom */
+    }
+    .btn-navigation .btn-default, .btn-navigation .primary-btn {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    .btn-navigation .btn-default:last-child, .btn-navigation .primary-btn:last-child {
+        margin-bottom: 0;
+    }
+    .order-confirmation .btn-default, .order-confirmation .primary-btn {
+        display: block;
+        width: 100%;
+        margin: 10px 0 0 0;
+    }
+    .order-confirmation .btn-default:first-child {
+        margin-top: 20px;
+    }
+}
