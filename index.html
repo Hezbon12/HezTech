@@ -2,9 +2,9 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		 
+		 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
 		<title>HezTech - Ecommerce</title>
 
@@ -26,6 +26,17 @@
 
 		<!-- Custom stlylesheet -->
 		<link type="text/css" rel="stylesheet" href="css/style.css"/>
+        
+        <!-- Cart & Wishlist stylesheet -->
+        <link type="text/css" rel="stylesheet" href="css/cart-wishlist.css"/>
+
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+		  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+
     </head>
 	<body>
 		<!-- HEADER -->
@@ -35,7 +46,7 @@
 				<div class="container">
 					<ul class="header-links pull-left">
 						<li><a href="#"><i class="fa fa-phone"></i> +254-715-203-748</a></li>
-						<li><a href="#"><i class="fa fa-envelope-o"></i> customerservice@heztech.com</a></li>
+						<li><a href="#"><i class="fa fa-envelope-o"></i> customerservice@heztechcom</a></li>
 						<li><a href="#"><i class="fa fa-map-marker"></i> 230-80108 Avenue Road, Kilifi-Kenya</a></li>
 					</ul>
 					<ul class="header-links pull-right">
@@ -55,7 +66,7 @@
 						<!-- LOGO -->
 						<div class="col-md-3">
 							<div class="header-logo">
-								<a href="index.html" class="logo">
+								<a href="#" class="logo">
 									<img src="./img/logo.png" alt="">
 								</a>
 							</div>
@@ -82,12 +93,32 @@
 						<div class="col-md-3 clearfix">
 							<div class="header-ctn">
 								<!-- Wishlist -->
-								<div>
-									<a href="product.html">
+								<div class="dropdown">
+									<a href="#" class="wishlist-dropdown-toggle">
 										<i class="fa fa-heart-o"></i>
 										<span>Your Wishlist</span>
-										<div class="qty">2</div>
+										<div class="wishlist-qty">0</div>
 									</a>
+									<div class="wishlist-dropdown header-dropdown">
+                                        <div class="header-dropdown-header">
+                                            <h4>Your Wishlist</h4>
+                                            <button class="close-dropdown"><i class="fa fa-close"></i></button>
+                                        </div>
+                                        <div class="header-dropdown-body">
+                                            <div class="wishlist-list">
+                                                <!-- Wishlist items will be dynamically inserted here -->
+                                                <div class="empty-state">
+                                                    <i class="fa fa-heart-o"></i>
+                                                    <p>Your wishlist is empty</p>
+                                                    <a href="store.html" class="primary-btn">Discover Products</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="wishlist-btns">
+                                            <a href="store.html">Continue Shopping</a>
+                                            <a href="wishlist.html">View Wishlist</a>
+                                        </div>
+                                    </div>
 								</div>
 								<!-- /Wishlist -->
 
@@ -96,41 +127,32 @@
 									<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
 										<i class="fa fa-shopping-cart"></i>
 										<span>Your Cart</span>
-										<div class="qty">3</div>
+										<div class="qty">0</div>
 									</a>
-									<div class="cart-dropdown">
-										<div class="cart-list">
-											<div class="product-widget">
-												<div class="product-img">
-													<img src="./img/product01.png" alt="">
-												</div>
-												<div class="product-body">
-													<h3 class="product-name"><a href="#">dell latitude 3350</a></h3>
-													<h4 class="product-price"><span class="qty">1x</span>KES10,980.00</h4>
-												</div>
-												<button class="delete"><i class="fa fa-close"></i></button>
-											</div>
-
-											<div class="product-widget">
-												<div class="product-img">
-													<img src="./img/product02.png" alt="">
-												</div>
-												<div class="product-body">
-													<h3 class="product-name"><a href="#">ajenny hps5000 headphones</a></h3>
-													<h4 class="product-price"><span class="qty">3x</span>KES10,980.00</h4>
-												</div>
-												<button class="delete"><i class="fa fa-close"></i></button>
-											</div>
-										</div>
-										<div class="cart-summary">
-											<small>3 Item(s) selected</small>
-											<h5>SUBTOTAL: KES21,960.00</h5>
-										</div>
-										<div class="cart-btns">
-											<a href="#">View Cart</a>
-											<a href="checkout.html">Checkout  <i class="fa fa-arrow-circle-right"></i></a>
-										</div>
-									</div>
+									<div class="cart-dropdown header-dropdown">
+                                        <div class="header-dropdown-header">
+                                            <h4>Your Cart</h4>
+                                            <button class="close-dropdown"><i class="fa fa-close"></i></button>
+                                        </div>
+                                        <div class="header-dropdown-body">
+                                            <div class="cart-list">
+                                                <!-- Cart items will be dynamically inserted here -->
+                                                <div class="empty-state">
+                                                    <i class="fa fa-shopping-cart"></i>
+                                                    <p>Your cart is empty</p>
+                                                    <a href="store.html" class="primary-btn">Start Shopping</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="cart-summary">
+                                            <small>0 Item(s) selected</small>
+                                            <h5>SUBTOTAL: <span class="subtotal-amount">KES0.00</span></h5>
+                                        </div>
+                                        <div class="cart-btns">
+                                            <a href="cart.html">View Cart</a>
+                                            <a href="checkout.html">Checkout <i class="fa fa-arrow-circle-right"></i></a>
+                                        </div>
+                                    </div>
 								</div>
 								<!-- /Cart -->
 
@@ -263,7 +285,7 @@
 								<div id="tab1" class="tab-pane active">
 									<div class="products-slick" data-nav="#slick-nav-1">
 										<!-- product -->
-										<div class="product">
+										<div class="product" data-product-id="product01">
 											<div class="product-img">
 												<img src="./img/product01.png" alt="">
 												<div class="product-label">
@@ -273,8 +295,8 @@
 											</div>
 											<div class="product-body">
 												<p class="product-category">Category</p>
-												<h3 class="product-name"><a href="#">DELL Latitude 3350</a></h3>
-												<h4 class="product-price">KES10,980.00 <del class="product-old-price">KES10,990.00</del></h4>
+												<h3 class="product-name"><a href="#">DELL LATITUDE 3350</a></h3>
+												<h4 class="product-price">KES10,980.00 <del class="product-old-price">KES15,990.00</del></h4>
 												<div class="product-rating">
 													<i class="fa fa-star"></i>
 													<i class="fa fa-star"></i>
@@ -283,19 +305,19 @@
 													<i class="fa fa-star"></i>
 												</div>
 												<div class="product-btns">
-													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
+													<button class="add-to-wishlist" data-product-id="product01" data-product-name="DELL LATITUDE 3350" data-product-price="10980" data-product-img="./img/product01.png"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
 													<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
 													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
 												</div>
 											</div>
 											<div class="add-to-cart">
-												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+												<button class="add-to-cart-btn" data-product-id="product01" data-product-name="DELL LATITUDE 3350" data-product-price="10980" data-product-img="./img/product01.png"><i class="fa fa-shopping-cart"></i> add to cart</button>
 											</div>
 										</div>
 										<!-- /product -->
 
 										<!-- product -->
-										<div class="product">
+										<div class="product" data-product-id="product02">
 											<div class="product-img">
 												<img src="./img/product02.png" alt="">
 												<div class="product-label">
@@ -305,7 +327,7 @@
 											<div class="product-body">
 												<p class="product-category">Category</p>
 												<h3 class="product-name"><a href="#">AJENNY HPS5000 HEADPHONES</a></h3>
-												<h4 class="product-price">KES10,980.00 <del class="product-old-price">KES10,990.00</del></h4>
+												<h4 class="product-price">KES5,490.00 <del class="product-old-price">KES6,990.00</del></h4>
 												<div class="product-rating">
 													<i class="fa fa-star"></i>
 													<i class="fa fa-star"></i>
@@ -314,52 +336,52 @@
 													<i class="fa fa-star-o"></i>
 												</div>
 												<div class="product-btns">
-													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
+													<button class="add-to-wishlist" data-product-id="product02" data-product-name="AJENNY HPS5000 HEADPHONES" data-product-price="5490" data-product-img="./img/product02.png"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
 													<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
 													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
 												</div>
 											</div>
 											<div class="add-to-cart">
-												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+												<button class="add-to-cart-btn" data-product-id="product02" data-product-name="AJENNY HPS5000 HEADPHONES" data-product-price="5490" data-product-img="./img/product02.png"><i class="fa fa-shopping-cart"></i> add to cart</button>
 											</div>
 										</div>
 										<!-- /product -->
 
 										<!-- product -->
-										<div class="product">
+										<div class="product" data-product-id="product03">
 											<div class="product-img">
 												<img src="./img/product03.png" alt="">
 												<div class="product-label">
-													<span class="sale">-30%</span>
+													<span class="sale">-25%</span>
 												</div>
 											</div>
 											<div class="product-body">
 												<p class="product-category">Category</p>
-												<h3 class="product-name"><a href="#">DELL Latitude 3350</a></h3>
-												<h4 class="product-price">KES10,980.00 <del class="product-old-price">KES10,990.00</del></h4>
+												<h3 class="product-name"><a href="#">CANON EOS 4000D</a></h3>
+												<h4 class="product-price">KES34,990.00 <del class="product-old-price">KES45,990.00</del></h4>
 												<div class="product-rating">
 												</div>
 												<div class="product-btns">
-													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
+													<button class="add-to-wishlist" data-product-id="product03" data-product-name="CANON EOS 4000D" data-product-price="34990" data-product-img="./img/product03.png"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
 													<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
 													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
 												</div>
 											</div>
 											<div class="add-to-cart">
-												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+												<button class="add-to-cart-btn" data-product-id="product03" data-product-name="CANON EOS 4000D" data-product-price="34990" data-product-img="./img/product03.png"><i class="fa fa-shopping-cart"></i> add to cart</button>
 											</div>
 										</div>
 										<!-- /product -->
 
 										<!-- product -->
-										<div class="product">
+										<div class="product" data-product-id="product04">
 											<div class="product-img">
 												<img src="./img/product04.png" alt="">
 											</div>
 											<div class="product-body">
 												<p class="product-category">Category</p>
-												<h3 class="product-name"><a href="#">MODIO tablet M18</a></h3>
-												<h4 class="product-price">KES10,980.00 <del class="product-old-price">KES10,990.00</del></h4>
+												<h3 class="product-name"><a href="#">SAMSUNG GALAXY S21</a></h3>
+												<h4 class="product-price">KES65,990.00 <del class="product-old-price">KES75,990.00</del></h4>
 												<div class="product-rating">
 													<i class="fa fa-star"></i>
 													<i class="fa fa-star"></i>
@@ -368,41 +390,41 @@
 													<i class="fa fa-star"></i>
 												</div>
 												<div class="product-btns">
-													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
+													<button class="add-to-wishlist" data-product-id="product04" data-product-name="SAMSUNG GALAXY S21" data-product-price="65990" data-product-img="./img/product04.png"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
 													<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
 													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
 												</div>
 											</div>
 											<div class="add-to-cart">
-												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+												<button class="add-to-cart-btn" data-product-id="product04" data-product-name="SAMSUNG GALAXY S21" data-product-price="65990" data-product-img="./img/product04.png"><i class="fa fa-shopping-cart"></i> add to cart</button>
 											</div>
 										</div>
 										<!-- /product -->
 
 										<!-- product -->
-										<div class="product">
+										<div class="product" data-product-id="product05">
 											<div class="product-img">
 												<img src="./img/product05.png" alt="">
 											</div>
 											<div class="product-body">
 												<p class="product-category">Category</p>
-												<h3 class="product-name"><a href="#">SONY Wireless Headphones</a></h3>
-												<h4 class="product-price">KES10,980.00 <del class="product-old-price">KES10,990.00</del></h4>
+												<h3 class="product-name"><a href="#">LOGITECH MX MASTER 3</a></h3>
+												<h4 class="product-price">KES8,990.00 <del class="product-old-price">KES10,990.00</del></h4>
 												<div class="product-rating">
 													<i class="fa fa-star"></i>
 													<i class="fa fa-star"></i>
 													<i class="fa fa-star"></i>
 													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
+													<i class="fa fa-star-o"></i>
 												</div>
 												<div class="product-btns">
-													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
+													<button class="add-to-wishlist" data-product-id="product05" data-product-name="LOGITECH MX MASTER 3" data-product-price="8990" data-product-img="./img/product05.png"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
 													<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
 													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
 												</div>
 											</div>
 											<div class="add-to-cart">
-												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+												<button class="add-to-cart-btn" data-product-id="product05" data-product-name="LOGITECH MX MASTER 3" data-product-price="8990" data-product-img="./img/product05.png"><i class="fa fa-shopping-cart"></i> add to cart</button>
 											</div>
 										</div>
 										<!-- /product -->
@@ -498,7 +520,7 @@
 								<div id="tab2" class="tab-pane fade in active">
 									<div class="products-slick" data-nav="#slick-nav-2">
 										<!-- product -->
-										<div class="product">
+										<div class="product" data-product-id="product06">
 											<div class="product-img">
 												<img src="./img/product06.png" alt="">
 												<div class="product-label">
@@ -508,8 +530,8 @@
 											</div>
 											<div class="product-body">
 												<p class="product-category">Category</p>
-												<h3 class="product-name"><a href="#">DELL LATITUDE 3350</a></h3>
-												<h4 class="product-price">KES10,980.00 <del class="product-old-price">KES10,990.00</del></h4>
+												<h3 class="product-name"><a href="#">APPLE MACBOOK AIR</a></h3>
+												<h4 class="product-price">KES99,990.00 <del class="product-old-price">KES129,990.00</del></h4>
 												<div class="product-rating">
 													<i class="fa fa-star"></i>
 													<i class="fa fa-star"></i>
@@ -518,19 +540,19 @@
 													<i class="fa fa-star"></i>
 												</div>
 												<div class="product-btns">
-													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
+													<button class="add-to-wishlist" data-product-id="product06" data-product-name="APPLE MACBOOK AIR" data-product-price="99990" data-product-img="./img/product06.png"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
 													<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
 													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
 												</div>
 											</div>
 											<div class="add-to-cart">
-												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+												<button class="add-to-cart-btn" data-product-id="product06" data-product-name="APPLE MACBOOK AIR" data-product-price="99990" data-product-img="./img/product06.png"><i class="fa fa-shopping-cart"></i> add to cart</button>
 											</div>
 										</div>
 										<!-- /product -->
 
 										<!-- product -->
-										<div class="product">
+										<div class="product" data-product-id="product07">
 											<div class="product-img">
 												<img src="./img/product07.png" alt="">
 												<div class="product-label">
@@ -539,8 +561,8 @@
 											</div>
 											<div class="product-body">
 												<p class="product-category">Category</p>
-												<h3 class="product-name"><a href="#">SAMSUNG A9</a></h3>
-												<h4 class="product-price">KES10,980.00 <del class="product-old-price">KES10,990.00</del></h4>
+												<h3 class="product-name"><a href="#">SONY WH-1000XM4</a></h3>
+												<h4 class="product-price">KES24,990.00 <del class="product-old-price">KES29,990.00</del></h4>
 												<div class="product-rating">
 													<i class="fa fa-star"></i>
 													<i class="fa fa-star"></i>
@@ -549,52 +571,52 @@
 													<i class="fa fa-star-o"></i>
 												</div>
 												<div class="product-btns">
-													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
+													<button class="add-to-wishlist" data-product-id="product07" data-product-name="SONY WH-1000XM4" data-product-price="24990" data-product-img="./img/product07.png"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
 													<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
 													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
 												</div>
 											</div>
 											<div class="add-to-cart">
-												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+												<button class="add-to-cart-btn" data-product-id="product07" data-product-name="SONY WH-1000XM4" data-product-price="24990" data-product-img="./img/product07.png"><i class="fa fa-shopping-cart"></i> add to cart</button>
 											</div>
 										</div>
 										<!-- /product -->
 
 										<!-- product -->
-										<div class="product">
+										<div class="product" data-product-id="product08">
 											<div class="product-img">
 												<img src="./img/product08.png" alt="">
 												<div class="product-label">
-													<span class="sale">-30%</span>
+													<span class="sale">-25%</span>
 												</div>
 											</div>
 											<div class="product-body">
 												<p class="product-category">Category</p>
-												<h3 class="product-name"><a href="#">DELL LATITUDE 3350</a></h3>
-												<h4 class="product-price">KES10,980.00 <del class="product-old-price">KES10,990.00</del></h4>
+												<h3 class="product-name"><a href="#">NIKON Z6 II</a></h3>
+												<h4 class="product-price">KES189,990.00 <del class="product-old-price">KES249,990.00</del></h4>
 												<div class="product-rating">
 												</div>
 												<div class="product-btns">
-													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
+													<button class="add-to-wishlist" data-product-id="product08" data-product-name="NIKON Z6 II" data-product-price="189990" data-product-img="./img/product08.png"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
 													<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
 													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
 												</div>
 											</div>
 											<div class="add-to-cart">
-												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+												<button class="add-to-cart-btn" data-product-id="product08" data-product-name="NIKON Z6 II" data-product-price="189990" data-product-img="./img/product08.png"><i class="fa fa-shopping-cart"></i> add to cart</button>
 											</div>
 										</div>
 										<!-- /product -->
 
 										<!-- product -->
-										<div class="product">
+										<div class="product" data-product-id="product09">
 											<div class="product-img">
 												<img src="./img/product09.png" alt="">
 											</div>
 											<div class="product-body">
 												<p class="product-category">Category</p>
-												<h3 class="product-name"><a href="#">REKAM CAMERA</a></h3>
-												<h4 class="product-price">KES10,980.00 <del class="product-old-price">KES10,990.00</del></h4>
+												<h3 class="product-name"><a href="#">IPHONE 13 PRO</a></h3>
+												<h4 class="product-price">KES129,990.00 <del class="product-old-price">KES139,990.00</del></h4>
 												<div class="product-rating">
 													<i class="fa fa-star"></i>
 													<i class="fa fa-star"></i>
@@ -603,41 +625,41 @@
 													<i class="fa fa-star"></i>
 												</div>
 												<div class="product-btns">
-													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
+													<button class="add-to-wishlist" data-product-id="product09" data-product-name="IPHONE 13 PRO" data-product-price="129990" data-product-img="./img/product09.png"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
 													<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
 													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
 												</div>
 											</div>
 											<div class="add-to-cart">
-												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+												<button class="add-to-cart-btn" data-product-id="product09" data-product-name="IPHONE 13 PRO" data-product-price="129990" data-product-img="./img/product09.png"><i class="fa fa-shopping-cart"></i> add to cart</button>
 											</div>
 										</div>
 										<!-- /product -->
 
 										<!-- product -->
-										<div class="product">
+										<div class="product" data-product-id="product10">
 											<div class="product-img">
-												<img src="./img/product01.png" alt="">
+												<img src="./img/product05.png" alt="">
 											</div>
 											<div class="product-body">
 												<p class="product-category">Category</p>
-												<h3 class="product-name"><a href="#">DELL LATITUDE 3350</a></h3>
-												<h4 class="product-price">KES10,980.00 <del class="product-old-price">KES10,990.00</del></h4>
+												<h3 class="product-name"><a href="#">LOGITECH G PRO X</a></h3>
+												<h4 class="product-price">KES12,990.00 <del class="product-old-price">KES14,990.00</del></h4>
 												<div class="product-rating">
 													<i class="fa fa-star"></i>
 													<i class="fa fa-star"></i>
 													<i class="fa fa-star"></i>
 													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
+													<i class="fa fa-star-o"></i>
 												</div>
 												<div class="product-btns">
-													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
+													<button class="add-to-wishlist" data-product-id="product10" data-product-name="LOGITECH G PRO X" data-product-price="12990" data-product-img="./img/product05.png"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
 													<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
 													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
 												</div>
 											</div>
 											<div class="add-to-cart">
-												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+												<button class="add-to-cart-btn" data-product-id="product10" data-product-name="LOGITECH G PRO X" data-product-price="12990" data-product-img="./img/product05.png"><i class="fa fa-shopping-cart"></i> add to cart</button>
 											</div>
 										</div>
 										<!-- /product -->
@@ -664,7 +686,7 @@
 				<div class="row">
 					<div class="col-md-4 col-xs-6">
 						<div class="section-title">
-							<h4 class="title">Top selling</h4>
+							<h4 class="title">Top Selling</h4>
 							<div class="section-nav">
 								<div id="slick-nav-3" class="products-slick-nav"></div>
 							</div>
@@ -679,8 +701,8 @@
 									</div>
 									<div class="product-body">
 										<p class="product-category">Category</p>
-										<h3 class="product-name"><a href="#">SAMSUNG A9</a></h3>
-										<h4 class="product-price">KES10,980.00 <del class="product-old-price">KES10,990.00</del></h4>
+										<h3 class="product-name"><a href="#">SONY WH-1000XM4</a></h3>
+										<h4 class="product-price">KES24,990.00 <del class="product-old-price">KES29,990.00</del></h4>
 									</div>
 								</div>
 								<!-- /product widget -->
@@ -692,8 +714,8 @@
 									</div>
 									<div class="product-body">
 										<p class="product-category">Category</p>
-										<h3 class="product-name"><a href="#">DELL LATITUDE 3350</a></h3>
-										<h4 class="product-price">KES10,980.00 <del class="product-old-price">KES10,990.00</del></h4>
+										<h3 class="product-name"><a href="#">NIKON Z6 II</a></h3>
+										<h4 class="product-price">KES189,990.00 <del class="product-old-price">KES249,990.00</del></h4>
 									</div>
 								</div>
 								<!-- /product widget -->
@@ -705,8 +727,8 @@
 									</div>
 									<div class="product-body">
 										<p class="product-category">Category</p>
-										<h3 class="product-name"><a href="#">rekam camera</a></h3>
-										<h4 class="product-price">KES10,980.00 <del class="product-old-price">KES10,990.00</del></h4>
+										<h3 class="product-name"><a href="#">IPHONE 13 PRO</a></h3>
+										<h4 class="product-price">KES129,990.00 <del class="product-old-price">KES139,990.00</del></h4>
 									</div>
 								</div>
 								<!-- product widget -->
@@ -720,8 +742,8 @@
 									</div>
 									<div class="product-body">
 										<p class="product-category">Category</p>
-										<h3 class="product-name"><a href="#">dell latitude 3350</a></h3>
-										<h4 class="product-price">KES10,980.00 <del class="product-old-price">KES10,990.00</del></h4>
+										<h3 class="product-name"><a href="#">DELL LATITUDE 3350</a></h3>
+										<h4 class="product-price">KES10,980.00 <del class="product-old-price">KES15,990.00</del></h4>
 									</div>
 								</div>
 								<!-- /product widget -->
@@ -733,8 +755,8 @@
 									</div>
 									<div class="product-body">
 										<p class="product-category">Category</p>
-										<h3 class="product-name"><a href="#">ajenny hps5000 headphones</a></h3>
-										<h4 class="product-price">KES10,980.00 <del class="product-old-price">KES10,990.00</del></h4>
+										<h3 class="product-name"><a href="#">AJENNY HPS5000 HEADPHONES</a></h3>
+										<h4 class="product-price">KES5,490.00 <del class="product-old-price">KES6,990.00</del></h4>
 									</div>
 								</div>
 								<!-- /product widget -->
@@ -746,8 +768,8 @@
 									</div>
 									<div class="product-body">
 										<p class="product-category">Category</p>
-										<h3 class="product-name"><a href="#">dell latitude 3350</a></h3>
-										<h4 class="product-price">KES10,980.00 <del class="product-old-price">KES10,990.00</del></h4>
+										<h3 class="product-name"><a href="#">CANON EOS 4000D</a></h3>
+										<h4 class="product-price">KES34,990.00 <del class="product-old-price">KES45,990.00</del></h4>
 									</div>
 								</div>
 								<!-- product widget -->
@@ -757,7 +779,7 @@
 
 					<div class="col-md-4 col-xs-6">
 						<div class="section-title">
-							<h4 class="title">Top selling</h4>
+							<h4 class="title">Top Selling</h4>
 							<div class="section-nav">
 								<div id="slick-nav-4" class="products-slick-nav"></div>
 							</div>
@@ -772,8 +794,8 @@
 									</div>
 									<div class="product-body">
 										<p class="product-category">Category</p>
-										<h3 class="product-name"><a href="#">modio tablet m18</a></h3>
-										<h4 class="product-price">KES10,980.00 <del class="product-old-price">KES10,990.00</del></h4>
+										<h3 class="product-name"><a href="#">SAMSUNG GALAXY S21</a></h3>
+										<h4 class="product-price">KES65,990.00 <del class="product-old-price">KES75,990.00</del></h4>
 									</div>
 								</div>
 								<!-- /product widget -->
@@ -785,8 +807,8 @@
 									</div>
 									<div class="product-body">
 										<p class="product-category">Category</p>
-										<h3 class="product-name"><a href="#">sony wireless headphones</a></h3>
-										<h4 class="product-price">KES10,980.00 <del class="product-old-price">KES10,990.00</del></h4>
+										<h3 class="product-name"><a href="#">LOGITECH MX MASTER 3</a></h3>
+										<h4 class="product-price">KES8,990.00 <del class="product-old-price">KES10,990.00</del></h4>
 									</div>
 								</div>
 								<!-- /product widget -->
@@ -798,8 +820,8 @@
 									</div>
 									<div class="product-body">
 										<p class="product-category">Category</p>
-										<h3 class="product-name"><a href="#">dell latittude 3350</a></h3>
-										<h4 class="product-price">KES10,980.00 <del class="product-old-price">KES10,990.00</del></h4>
+										<h3 class="product-name"><a href="#">APPLE MACBOOK AIR</a></h3>
+										<h4 class="product-price">KES99,990.00 <del class="product-old-price">KES129,990.00</del></h4>
 									</div>
 								</div>
 								<!-- product widget -->
@@ -813,8 +835,8 @@
 									</div>
 									<div class="product-body">
 										<p class="product-category">Category</p>
-										<h3 class="product-name"><a href="#">samsung a9</a></h3>
-										<h4 class="product-price">KES10,980.00 <del class="product-old-price">KES10,990.00</del></h4>
+										<h3 class="product-name"><a href="#">SONY WH-1000XM4</a></h3>
+										<h4 class="product-price">KES24,990.00 <del class="product-old-price">KES29,990.00</del></h4>
 									</div>
 								</div>
 								<!-- /product widget -->
@@ -826,8 +848,8 @@
 									</div>
 									<div class="product-body">
 										<p class="product-category">Category</p>
-										<h3 class="product-name"><a href="#">dell latitude 3350</a></h3>
-										<h4 class="product-price">KES10,980.00 <del class="product-old-price">KES10,990.00</del></h4>
+										<h3 class="product-name"><a href="#">NIKON Z6 II</a></h3>
+										<h4 class="product-price">KES189,990.00 <del class="product-old-price">KES249,990.00</del></h4>
 									</div>
 								</div>
 								<!-- /product widget -->
@@ -839,8 +861,8 @@
 									</div>
 									<div class="product-body">
 										<p class="product-category">Category</p>
-										<h3 class="product-name"><a href="#">rekam camera</a></h3>
-										<h4 class="product-price">KES10,980.00 <del class="product-old-price">KES10,990.00</del></h4>
+										<h3 class="product-name"><a href="#">IPHONE 13 PRO</a></h3>
+										<h4 class="product-price">KES129,990.00 <del class="product-old-price">KES139,990.00</del></h4>
 									</div>
 								</div>
 								<!-- product widget -->
@@ -852,7 +874,7 @@
 
 					<div class="col-md-4 col-xs-6">
 						<div class="section-title">
-							<h4 class="title">Top selling</h4>
+							<h4 class="title">Top Selling</h4>
 							<div class="section-nav">
 								<div id="slick-nav-5" class="products-slick-nav"></div>
 							</div>
@@ -867,8 +889,8 @@
 									</div>
 									<div class="product-body">
 										<p class="product-category">Category</p>
-										<h3 class="product-name"><a href="#">dell latitude 3350</a></h3>
-										<h4 class="product-price">KES10,980.00 <del class="product-old-price">KES10,990.00</del></h4>
+										<h3 class="product-name"><a href="#">DELL LATITUDE 3350</a></h3>
+										<h4 class="product-price">KES10,980.00 <del class="product-old-price">KES15,990.00</del></h4>
 									</div>
 								</div>
 								<!-- /product widget -->
@@ -880,8 +902,8 @@
 									</div>
 									<div class="product-body">
 										<p class="product-category">Category</p>
-										<h3 class="product-name"><a href="#">ajenny hps5000 headphones</a></h3>
-										<h4 class="product-price">KES10,980.00 <del class="product-old-price">KES10,990.00</del></h4>
+										<h3 class="product-name"><a href="#">AJENNY HPS5000 HEADPHONES</a></h3>
+										<h4 class="product-price">KES5,490.00 <del class="product-old-price">KES6,990.00</del></h4>
 									</div>
 								</div>
 								<!-- /product widget -->
@@ -893,8 +915,8 @@
 									</div>
 									<div class="product-body">
 										<p class="product-category">Category</p>
-										<h3 class="product-name"><a href="#">dell latitude 3350</a></h3>
-										<h4 class="product-price">KES10,980.00 <del class="product-old-price">KES10,990.00</del></h4>
+										<h3 class="product-name"><a href="#">CANON EOS 4000D</a></h3>
+										<h4 class="product-price">KES34,990.00 <del class="product-old-price">KES45,990.00</del></h4>
 									</div>
 								</div>
 								<!-- product widget -->
@@ -908,8 +930,8 @@
 									</div>
 									<div class="product-body">
 										<p class="product-category">Category</p>
-										<h3 class="product-name"><a href="#">modio tablet m18</a></h3>
-										<h4 class="product-price">KES10,980.00 <del class="product-old-price">KES10,990.00</del></h4>
+										<h3 class="product-name"><a href="#">SAMSUNG GALAXY S21</a></h3>
+										<h4 class="product-price">KES65,990.00 <del class="product-old-price">KES75,990.00</del></h4>
 									</div>
 								</div>
 								<!-- /product widget -->
@@ -921,8 +943,8 @@
 									</div>
 									<div class="product-body">
 										<p class="product-category">Category</p>
-										<h3 class="product-name"><a href="#">sony wireless headphones</a></h3>
-										<h4 class="product-price">KES10,980.00 <del class="product-old-price">KES10,990.00</del></h4>
+										<h3 class="product-name"><a href="#">LOGITECH MX MASTER 3</a></h3>
+										<h4 class="product-price">KES8,990.00 <del class="product-old-price">KES10,990.00</del></h4>
 									</div>
 								</div>
 								<!-- /product widget -->
@@ -934,8 +956,8 @@
 									</div>
 									<div class="product-body">
 										<p class="product-category">Category</p>
-										<h3 class="product-name"><a href="#">dell latitude 3350</a></h3>
-										<h4 class="product-price">KES10,980.00 <del class="product-old-price">KES10,990.00</del></h4>
+										<h3 class="product-name"><a href="#">APPLE MACBOOK AIR</a></h3>
+										<h4 class="product-price">KES99,990.00 <del class="product-old-price">KES129,990.00</del></h4>
 									</div>
 								</div>
 								<!-- product widget -->
@@ -1001,7 +1023,7 @@
 								<ul class="footer-links">
 									<li><a href="#"><i class="fa fa-map-marker"></i>230-80108 Avenue Road, Kilifi-Kenya</a></li>
 									<li><a href="#"><i class="fa fa-phone"></i>+254-715-203-748</a></li>
-									<li><a href="#"><i class="fa fa-envelope-o"></i>customerservice@heztech.com</a></li>
+									<li><a href="#"><i class="fa fa-envelope-o"></i>customerservice@heztechcom</a></li>
 								</ul>
 							</div>
 						</div>
@@ -1067,8 +1089,10 @@
 								<li><a href="#"><i class="fa fa-cc-discover"></i></a></li>
 								<li><a href="#"><i class="fa fa-cc-amex"></i></a></li>
 							</ul>
-							<span class="copyright">								
+							<span class="copyright">
+								<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 								Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This website is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by Hezbon Oduol for <a href="https://www.alxafrica.com/software-engineering/" target="_blank">ALX</a>
+							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 							</span>
 						</div>
 					</div>
@@ -1087,6 +1111,10 @@
 		<script src="js/nouislider.min.js"></script>
 		<script src="js/jquery.zoom.min.js"></script>
 		<script src="js/main.js"></script>
+        
+        <!-- Cart & Wishlist JavaScript -->
+        <script src="js/cart.js"></script>
+        <script src="js/wishlist.js"></script>
 
 	</body>
 </html>
